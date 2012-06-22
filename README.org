@@ -1,0 +1,31 @@
+* Mac OS X EmacsClient.app
+*** EmacsClient Overview
+[[http://bit.ly/MpiAZM][GNU Emacs]] has the ability to run as an editing server via the [[http://bit.ly/Mpiwcm][emacsclient]] command-line executable. This allows a pre-existing Emacs process to be called from the command-line. Most typically this is used to edit files such as:
+#+BEGIN_EXAMPLE
+emacsclient $HOME/.emacs.d/init.el
+#+END_EXAMPLE
+
+*** EmacsClient And Mac Os X
+While [[http://bit.ly/Mpjw03][Mac OS X]] is a [[http://bit.ly/MpjB44][variant]] of [[http://bit.ly/LLCq0P][Unix]], Mac OS X uses its own [[http://bit.ly/MpjWng][application bundle]] format. Frequently, when Mac OS X needs to interact with a user's program, Mac OS X requires an application bundle rather than the more general Unix [[http://bit.ly/Mpk864][executable]]. The result of this is that integrating Mac OS X with the emacsclient executable requires some [[http://bit.ly/MpkNEl][jimmying]].
+
+*** Org Mode And EmacsClient
+[[http://bit.ly/zhYdcB][Org Mode]] uses the =emacsclient= command-line program for [[http://bit.ly/MoC0m7][capturing data]] as discussed on the [[http://bit.ly/MpjeX3][org-protocol.el]] webpage. For Org Mode capture to work correctly, you must integrate the emacsclient executable with Mac OS X's [[http://bit.ly/Mpl1eQ][URL dispatch mechanism]]. This is a non-trivial task.
+
+*** EmacsClient.app To The Rescue
+Based largely on the work of [[http://bit.ly/Mpl6iG][JCardente]], EmacsClient.app is a simple Mac OS X application bundle that you configures Mac OS X to use the emacsclient executable in a manner consistent with Org Mode's capture mechanism. 
+
+*** Installing EmacsClient.app
+Simply download =EmacsClient.zip=, uncompress it, and copy =EmacsClient.app= to your =/Applications= directory. Things may not work correctly if you install it into a directory other than =/Applications=.
+
+You must have [[http://bit.ly/MpoJ8k][Aquamacs]] installed in the =/Applications= directory as well.
+
+*** What EmacsClient.app Provides
+=EmacsClient.app= maps the following [[http://bit.ly/MpoR7B][URL schemes]] to the =Aquamacs= executable:
+  - =org-protocol=: The default protocol for Org Mode capture.
+  - =org=: A shorter version of =org-protocol= that I like to use.
+  - =emacs=, =emacs0=, =emacs1=, =emacs2=, =emacs3=, =emacs4=, =emacs5=: Unused protocols that are added for extension purposes.
+
+*** The Bottom Line
+Install =EmacsClient.app= in your =/Applications= directory alongside =Aquamacs=, follow the configuration instructions for [[http://bit.ly/MpjeX3][org-protocol]] and then enjoy Org Mode capturing!
+
+
